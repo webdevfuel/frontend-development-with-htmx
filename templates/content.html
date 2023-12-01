@@ -1,3 +1,4 @@
 {{define "content"}}
-<p>Hello, world!</p>
+<p hx-get="/message" hx-select="#primary" hx-select-oob="#secondary">Hello, from primary message!</p>
+<p id="secondary">Hello, from secondary message!</p>
 {{end}}
