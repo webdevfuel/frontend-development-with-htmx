@@ -1,3 +1,17 @@
 {{define "content"}}
-<p>Hello, world!</p>
+<p hx-get="/message" hx-target="#contents" hx-swap="innerHTML">Hello, world! (innerHTML)</p>
+<p hx-get="/message" hx-target="#contents" hx-swap="outerHTML">Hello, world! (outerHTML)</p>
+
+<p hx-get="/message" hx-target="#contents" hx-swap="beforebegin">Hello, world! (beforebegin)</p>
+<p hx-get="/message" hx-target="#contents" hx-swap="afterbegin">Hello, world! (afterbegin)</p>
+
+<p hx-get="/message" hx-target="#contents" hx-swap="beforeend">Hello, world! (beforeend)</p>
+<p hx-get="/message" hx-target="#contents" hx-swap="afterend">Hello, world! (afterend)</p>
+
+<p hx-get="/message" hx-target="#contents" hx-swap="delete">Hello, world! (delete)</p>
+<p hx-get="/message" hx-target="#contents" hx-swap="none">Hello, world! (none)</p>
+
+<div id="contents">
+  <p>Contents</p>
+</div>
 {{end}}
