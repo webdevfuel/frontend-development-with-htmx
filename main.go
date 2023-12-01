@@ -19,5 +19,8 @@ func main() {
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		tmpl.ExecuteTemplate(w, "index.html", nil)
 	})
+	r.Delete("/message", func(w http.ResponseWriter, r *http.Request) {
+		tmpl.ExecuteTemplate(w, "message.html", nil)
+	})
 	http.ListenAndServe("localhost:3000", r)
 }
