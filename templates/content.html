@@ -1,3 +1,7 @@
 {{define "content"}}
-<p>Hello, world!</p>
+<p hx-get="/message" hx-target="#contents">Hello, world!</p>
+
+<div id="contents">
+  <p>Contents</p>
+</div>
 {{end}}
