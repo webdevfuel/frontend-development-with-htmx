@@ -1,3 +1,6 @@
 {{define "content"}}
-<p>Hello, world!</p>
+<p hx-get="/message" hx-trigger="load delay:1s">Hello, world! (load delay:1s)</p>
+<p hx-get="/message" hx-trigger="click delay:1s">Hello, world! (click delay:1s)</p>
+<p hx-get="/message" hx-trigger="load, click delay:1s">Hello, world! (load, click delay:1s)</p>
+<p hx-get="/message" hx-trigger="every 1s">Hello, world! (every 1s)</p>
 {{end}}
