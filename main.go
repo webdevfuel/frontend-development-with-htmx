@@ -19,5 +19,15 @@ func main() {
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		tmpl.ExecuteTemplate(w, "index.html", nil)
 	})
+	r.Post("/message", func(w http.ResponseWriter, r *http.Request) {
+		message := r.FormValue("message")
+		if message == "" {
+			log.Fatal("No message was provided to /message POST endpoint.")
+			return
+		}
+		tmpl.ExecuteTemplate(w, "message.html", map[string]string{
+			"message": message,
+		})
+	})
 	http.ListenAndServe("localhost:3000", r)
 }
