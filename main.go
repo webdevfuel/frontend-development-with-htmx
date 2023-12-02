@@ -17,7 +17,17 @@ func main() {
 	r.Use(middleware.Logger)
 	r.Handle("/dist/*", http.StripPrefix("/dist/", http.FileServer(http.Dir("./dist"))))
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
-		tmpl.ExecuteTemplate(w, "index.html", nil)
+		tmpl.ExecuteTemplate(w, "index.html", map[string]string{
+			"page": "index",
+		})
+	})
+	r.Get("/redirect", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("HX-Redirect", "http://localhost:3000/message")
+	})
+	r.Get("/message", func(w http.ResponseWriter, r *http.Request) {
+		tmpl.ExecuteTemplate(w, "index.html", map[string]string{
+			"page": "message",
+		})
 	})
 	http.ListenAndServe("localhost:3000", r)
 }
