@@ -19,5 +19,9 @@ func main() {
 	r.Get("/", func(w http.ResponseWriter, r *http.Request) {
 		tmpl.ExecuteTemplate(w, "index.html", nil)
 	})
+	r.Get("/message", func(w http.ResponseWriter, r *http.Request) {
+		w.Header().Set("HX-Retarget", "#content")
+		tmpl.ExecuteTemplate(w, "message.html", nil)
+	})
 	http.ListenAndServe("localhost:3000", r)
 }
