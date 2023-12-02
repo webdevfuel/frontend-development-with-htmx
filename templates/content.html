@@ -1,3 +1,4 @@
 {{define "content"}}
-<p>Hello, world!</p>
+<p hx-get="/update" hx-swap="none">Update</p>
+<p hx-trigger="update from:body" hx-get="/message">Hello, world!</p>
 {{end}}
